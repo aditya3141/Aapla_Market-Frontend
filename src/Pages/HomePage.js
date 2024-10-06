@@ -29,7 +29,9 @@ const HomePage = () => {
   // get all category
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/gets-category");
+      const { data } = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/category/gets-category"
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -46,7 +48,9 @@ const HomePage = () => {
   //getTotal Count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/product-count");
+      const { data } = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/product/product-count"
+      );
       setTotal(data?.total);
     } catch (error) {
       console.error(error);
@@ -63,7 +67,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://aapla-market-backend.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts(data.products);
     } catch (error) {
@@ -95,7 +101,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `https://aapla-market-backend.onrender.com/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -107,10 +115,13 @@ const HomePage = () => {
   //get filtered products
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("/api/v1/product/product-filter", {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        "https://aapla-market-backend.onrender.com/api/v1/product/product-filter",
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
       console.error(error);
@@ -216,7 +227,7 @@ const HomePage = () => {
                     <div className="product-box-img">
                       <NavLink to={`/product/${p.slug}`}>
                         <img
-                          src={`/api/v1/product/product-photo/${p._id}`}
+                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                           className="img"
                           alt={p.name}
                         />

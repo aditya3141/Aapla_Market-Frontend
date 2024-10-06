@@ -7,7 +7,9 @@ export default function useCategory() {
   //get cat
   const getCategories = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/gets-category");
+      const { data } = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/category/gets-category"
+      );
       setCategories(data?.category);
     } catch (error) {}
   };

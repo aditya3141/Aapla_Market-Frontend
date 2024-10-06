@@ -38,7 +38,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `https://aapla-market-backend.onrender.com/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       setImages(data.product.images || []);
@@ -52,7 +52,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/similer-product/${pid}/${cid}`
+        `https://aapla-market-backend.onrender.com/api/v1/product/similer-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -313,7 +313,7 @@ const ProductDetails = () => {
                 <div className="product-box-img">
                   <NavLink to={`/product/${p.slug}`}>
                     <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                     />

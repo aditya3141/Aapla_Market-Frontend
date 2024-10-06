@@ -27,7 +27,7 @@ const Search = () => {
                 <div className="product-box-img">
                   <NavLink to={`/product/${p.slug}`}>
                     <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                     />

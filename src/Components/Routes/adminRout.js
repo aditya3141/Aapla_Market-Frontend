@@ -10,7 +10,9 @@ export default function AdminRoute() {
 
   useEffect(() => {
     const authCheck = async () => {
-      const res = await axios.get("/api/v1/auth/admin-auth");
+      const res = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/auth/admin-auth"
+      );
       if (res.data.ok) {
         setok(true);
       } else {

@@ -12,7 +12,9 @@ const Products = () => {
   //get all products
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get("/api/v1/product/get-product");
+      const { data } = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/product/get-product"
+      );
       setProducts(data.products);
     } catch (error) {
       toast.error("Someething Went Wrong");
@@ -47,7 +49,7 @@ const Products = () => {
                     >
                       <div className="product-box-img">
                         <img
-                          src={`/api/v1/product/product-photo/${p._id}`}
+                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
                         />

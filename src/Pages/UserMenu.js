@@ -12,9 +12,12 @@ const UserMenu = () => {
     const fetchData = async () => {
       try {
         // Make a GET request to your API endpoint using Axios
-        const response = await axios.get("http://localhost:9000/login/sucess", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          {
+            withCredentials: true,
+          }
+        );
         // Once data is fetched, update the state
         setData(response.data);
       } catch (error) {
@@ -29,7 +32,10 @@ const UserMenu = () => {
   const handleLogout = () => {};
 
   const logout = () => {
-    window.open("http://localhost:9000/google-logout", "_self");
+    window.open(
+      "https://aapla-market-backend.onrender.com/api/v1/google-logout",
+      "_self"
+    );
     setAuth({
       ...auth,
       user: "null",

@@ -14,7 +14,9 @@ const Allusers = () => {
   //get all products
   const getAllUsers = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-Userss");
+      const { data } = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/auth/all-Userss"
+      );
       setallusers(data.result);
       setallusers(data);
     } catch (error) {
@@ -29,7 +31,9 @@ const Allusers = () => {
 
   const handleDelete = async (pId) => {
     try {
-      const { data } = await axios.delete(`/api/v1/auth/delete-Userss/${pId}`);
+      const { data } = await axios.delete(
+        `https://aapla-market-backend.onrender.com/api/v1/auth/delete-Userss/${pId}`
+      );
       if (data.success) {
         toast.success("Users Delete Successfully");
         getAllUsers();

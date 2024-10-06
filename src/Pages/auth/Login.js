@@ -19,10 +19,13 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`/api/v1/auth/login`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `https://aapla-market-backend.onrender.com/api/v1/auth/login`,
+        {
+          email,
+          password,
+        }
+      );
       if (res && res.data.success) {
         toast.success(res.data.message);
         setAuth({
@@ -41,7 +44,10 @@ const Login = () => {
   };
 
   const loginwithgoogle = () => {
-    window.open("http://localhost:9000/auth/google/callback", "_self");
+    window.open(
+      "https://aapla-market-backend.onrender.com/api/v1/auth/google/callback",
+      "_self"
+    );
   };
   return (
     <Layout>

@@ -18,9 +18,12 @@ const CartPage = () => {
     const fetchData = async () => {
       try {
         // Make a GET request to your API endpoint using Axios
-        const response = await axios.get("http://localhost:9000/login/sucess", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          {
+            withCredentials: true,
+          }
+        );
         // Once data is fetched, update the state
         setData(response.data);
       } catch (error) {
@@ -84,7 +87,7 @@ const CartPage = () => {
       }));
 
       await axios.post(
-        "/api/v1/payment",
+        "https://aapla-market-backend.onrender.com/api/v1/payment",
         { cart: cartData },
         {
           headers: {
@@ -171,7 +174,7 @@ const CartPage = () => {
                       <NavLink to={`/product/${product.slug}`}>
                         <img
                           className="img-fluid img"
-                          src={`/api/v1/product/product-photo/${product._id}`}
+                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${product._id}`}
                           alt={product.name}
                         />
                       </NavLink>

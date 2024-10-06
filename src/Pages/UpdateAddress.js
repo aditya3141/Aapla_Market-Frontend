@@ -14,9 +14,12 @@ const UpdateAddress = () => {
     const fetchData = async () => {
       try {
         // Make a GET request to your API endpoint using Axios
-        const response = await axios.get("http://localhost:9000/login/sucess", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          {
+            withCredentials: true,
+          }
+        );
         // Once data is fetched, update the state
         setData(response.data);
       } catch (error) {
@@ -55,11 +58,14 @@ const UpdateAddress = () => {
     }
 
     try {
-      const response = await axios.put("/api/v1/auth/update-address", {
-        name: formData.name,
-        phone: formData.phone,
-        address: formData.address,
-      });
+      const response = await axios.put(
+        "https://aapla-market-backend.onrender.com/api/v1/auth/update-address",
+        {
+          name: formData.name,
+          phone: formData.phone,
+          address: formData.address,
+        }
+      );
       if (response.data.success) {
         setAuth({ ...auth, user: { ...auth.user, ...formData } });
         setVisible(false); // Close modal after successful update

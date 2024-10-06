@@ -42,15 +42,18 @@ const UpdateAddressForm = () => {
       return;
     }
     try {
-      const { data } = await axios.put("/api/v1/auth/update-address", {
-        name,
-        address,
-        phone,
-        city,
-        pin,
-        landmark,
-        addressType,
-      });
+      const { data } = await axios.put(
+        "https://aapla-market-backend.onrender.com/api/v1/auth/update-address",
+        {
+          name,
+          address,
+          phone,
+          city,
+          pin,
+          landmark,
+          addressType,
+        }
+      );
 
       if (data.error) {
         toast.error(data?.error);

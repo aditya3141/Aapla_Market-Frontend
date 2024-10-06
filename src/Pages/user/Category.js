@@ -16,7 +16,7 @@ const Category = () => {
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/product-category/${params.slug}`
+        `https://aapla-market-backend.onrender.com/api/v1/product/product-category/${params.slug}`
       );
       setProducts(data?.products);
       setCategory(data?.category);
@@ -59,7 +59,7 @@ const Category = () => {
                 <div className="product-box-img">
                   <NavLink to={`/product/${p.slug}`}>
                     <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
+                      src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                     />
