@@ -11,12 +11,21 @@ const UserMenu = () => {
  useEffect(() => {
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
-      );
-      console.log(response?.data); // Check if the data is received
-      console.log("Vinayak Basla Ahe Lavdyavar"); 
-      setData(response?.data);
+      const axios = require('axios');
+
+let config = {
+  method: 'get',
+  maxBodyLength: Infinity,
+  url: 'https://aapla-market-backend.onrender.com/api/v1/login/sucess'  
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
     } catch (error) {
       console.error("Error fetching data:", error);
     }
