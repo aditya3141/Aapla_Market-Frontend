@@ -14,9 +14,9 @@ const UserMenu = () => {
       const response = await axios.get(
         "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
       );
-      console.log(response?.data?.user); // Check if the data is received
+      console.log(response?.data); // Check if the data is received
       console.log("Vinayak Basla Ahe Lavdyavar"); 
-      setData(response?.data?.user);
+      setData(response?.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
