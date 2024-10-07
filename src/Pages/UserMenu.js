@@ -15,6 +15,7 @@ const UserMenu = () => {
         "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
       );
       console.log(response?.data?.user); // Check if the data is received
+      console.log("Vinayak Basla Ahe Lavdyavar"); 
       setData(response?.data?.user);
     } catch (error) {
       console.error("Error fetching data:", error);
