@@ -8,27 +8,40 @@ const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  useEffect(() => {
+   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Make a GET request to your API endpoint using Axios
+        // Function to get the 'connect.sid' from cookies
+        const getCookie = (name) => {
+          const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+          if (match) return match[2];
+          return null;
+        };
+
+        // Get the 'connect.sid' cookie value
+        const connectSid = getCookie('connect.sid');
+
+        // Make a GET request to your API endpoint using Axios, passing the 'connect.sid' in headers
         const response = await axios.get(
           "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
           {
-            withCredentials: true,
+            withCredentials: true, // Ensure credentials are included
+            headers: {
+              'Authorization': `Bearer ${connectSid}` // Pass 'connect.sid' dynamically in the Authorization header
+            }
           }
         );
+
         // Once data is fetched, update the state
         setData(response.data);
       } catch (error) {
-        // If an error occurs, update the state with the error
+        console.error("Error fetching data:", error);
       }
     };
 
     // Call the fetchData function
     fetchData();
   }, []);
-
 
 
   const handleLogout = () => {};
