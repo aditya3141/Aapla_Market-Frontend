@@ -13,10 +13,8 @@ const UserMenu = () => {
       try {
         // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
-          {
-            withCredentials: true,
-          }
+          "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
+        
         );
         // Once data is fetched, update the state
         setData(response.data);
