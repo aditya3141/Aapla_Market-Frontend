@@ -17,7 +17,7 @@ const UserMenu = () => {
         
         );
         // Once data is fetched, update the state
-        setData(response.data);
+        setData(response?.data?.user);
       } catch (error) {
         // If an error occurs, update the state with the error
       }
