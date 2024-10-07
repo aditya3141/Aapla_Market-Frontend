@@ -8,24 +8,21 @@ const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Make a GET request to your API endpoint using Axios
-        const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
-        
-        );
-        // Once data is fetched, update the state
-        setData(response?.data?.user);
-      } catch (error) {
-        // If an error occurs, update the state with the error
-      }
-    };
+ useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/login/sucess"
+      );
+      console.log(response?.data?.user); // Check if the data is received
+      setData(response?.data?.user);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  fetchData();
+}, []);
 
-    // Call the fetchData function
-    fetchData();
-  }, []);
 
   const handleLogout = () => {};
 
