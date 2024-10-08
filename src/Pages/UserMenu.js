@@ -8,24 +8,26 @@ const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
-        {
-          withCredentials: true,  // Ensure that cookies are sent
-        }
-      );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          {
+            withCredentials: true,  // Send credentials such as cookies
+            headers: {
+              Cookie: 'connect.sid=s%3AMYp7IfaGMcVUSVJskBHuV11_5eUbPRQm.7SAcYesNQysoBbO9bWDnRUW2b0DolCMLs6nupIzce78', // Manually add the cookie
+            },
+          }
+        );
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error.response ? error.response.data : error.message);
+      }
+    };
 
-      setData(response.data);
-    } catch (error) {
-      console.error("Error fetching data:", error.response ? error.response.data : error.message);
-    }
-  };
-
-  fetchData();
-}, []);
+    fetchData();
+  }, []);
 
 
   const handleLogout = () => {};
