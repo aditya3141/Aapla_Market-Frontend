@@ -11,31 +11,36 @@ const UserMenu = () => {
    useEffect(() => {
     const fetchData = async () => {
       try {
-        // Function to get the 'connect.sid' from cookies
+        // Function to get the 'connect.sid' cookie from the browser
         const getCookie = (name) => {
           const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
           if (match) return match[2];
           return null;
         };
 
-        // Get the 'connect.sid' cookie value
+        // Get 'connect.sid' from the cookie
         const connectSid = getCookie('connect.sid');
 
-        // Make a GET request to your API endpoint using Axios, passing the 'connect.sid' in headers
+        if (!connectSid) {
+          console.error('connect.sid cookie not found');
+          return;
+        }
+
+        // Make a GET request to your API endpoint using Axios, including credentials
         const response = await axios.get(
           "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
           {
-            withCredentials: true, // Ensure credentials are included
+            withCredentials: true, // Send cookies with the request
             headers: {
-              'Authorization': `Bearer ${connectSid}` // Pass 'connect.sid' dynamically in the Authorization header
+              // Authorization is not needed in the headers as cookies will be sent automatically
             }
           }
         );
 
-        // Once data is fetched, update the state
+        // If data is successfully fetched, update the state
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching data:", error.response ? error.response.data : error.message);
       }
     };
 
