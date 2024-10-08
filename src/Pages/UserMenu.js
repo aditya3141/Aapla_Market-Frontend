@@ -25,7 +25,7 @@ const UserMenu = () => {
           {
             withCredentials: true,  // Allow sending cookies
             headers: {
-              Cookie: `connect.sid=${cookieValue}`, // Dynamically include the cookie value
+              Cookie: `connect.sid=s%3AYN4GrddnIFT8zS0AqvflqXBV2EDR3v24.mldD3rWFI%2Fj7my6IyEr%2BU5iJEJqaYbVqwXWia48hD8c`, // Dynamically include the cookie value
             },
           }
         );
