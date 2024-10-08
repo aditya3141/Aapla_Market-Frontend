@@ -9,44 +9,23 @@ const UserMenu = () => {
   const [data, setData] = useState(null);
   const navigate = useNavigate();
    useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Function to get the 'connect.sid' cookie from the browser
-        const getCookie = (name) => {
-          const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-          if (match) return match[2];
-          return null;
-        };
-
-        // Get 'connect.sid' from the cookie
-        const connectSid = getCookie('connect.sid');
-
-        if (!connectSid) {
-          console.error('connect.sid cookie not found');
-          return;
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+        {
+          withCredentials: true,  // Ensure that cookies are sent
         }
+      );
 
-        // Make a GET request to your API endpoint using Axios, including credentials
-        const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
-          {
-            withCredentials: true, // Send cookies with the request
-            headers: {
-              // Authorization is not needed in the headers as cookies will be sent automatically
-            }
-          }
-        );
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error.response ? error.response.data : error.message);
+    }
+  };
 
-        // If data is successfully fetched, update the state
-        setData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error.response ? error.response.data : error.message);
-      }
-    };
-
-    // Call the fetchData function
-    fetchData();
-  }, []);
+  fetchData();
+}, []);
 
 
   const handleLogout = () => {};
