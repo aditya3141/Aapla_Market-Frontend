@@ -8,15 +8,24 @@ const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Dynamically get the cookie named 'connect.sid'
+        const cookieValue = getCookie('connect.sid');
+        
         const response = await axios.get(
           "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
           {
-            withCredentials: true,  // Send credentials such as cookies
+            withCredentials: true,  // Allow sending cookies
             headers: {
-              Cookie: 'connect.sid=s%3AMYp7IfaGMcVUSVJskBHuV11_5eUbPRQm.7SAcYesNQysoBbO9bWDnRUW2b0DolCMLs6nupIzce78', // Manually add the cookie
+              Cookie: `connect.sid=${cookieValue}`, // Dynamically include the cookie value
             },
           }
         );
