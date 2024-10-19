@@ -11,27 +11,29 @@ const UserMenu = () => {
   const getCookie = (name) => {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+    if (parts.length === 2) return parts.pop().split(";").shift();
   };
 
-   useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
+          "https://aapla-market-backend.vercel.app/login/sucess",
           {
-            withCredentials: true,  // Automatically send cookies, including HttpOnly
+            withCredentials: true, // Automatically send cookies, including HttpOnly
           }
         );
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error.response ? error.response.data : error.message);
+        console.error(
+          "Error fetching data:",
+          error.response ? error.response.data : error.message
+        );
       }
     };
 
     fetchData();
   }, []);
-
 
   const handleLogout = () => {};
 

@@ -19,7 +19,7 @@ const CartPage = () => {
       try {
         // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
-          "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
+          "https://aapla-market-backend.vercel.app/login/sucess",
           {
             withCredentials: true,
           }
