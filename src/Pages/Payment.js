@@ -28,7 +28,7 @@ const Payment = () => {
     try {
       setVisible(true);
       const { data } = await axios.post(
-        "https://aapla-market-backend.onrender.com/api/v1/product/payment",
+        "https://aapla-market-backend.vercel.app/api/v1/product/payment",
         {
           cart,
         }

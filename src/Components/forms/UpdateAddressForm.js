@@ -43,7 +43,7 @@ const UpdateAddressForm = () => {
     }
     try {
       const { data } = await axios.put(
-        "https://aapla-market-backend.onrender.com/api/v1/auth/update-address",
+        "https://aapla-market-backend.vercel.app/api/v1/auth/update-address",
         {
           name,
           address,

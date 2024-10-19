@@ -14,7 +14,7 @@ const Orders = () => {
   const getOrders = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/auth/orders"
+        "https://aapla-market-backend.vercel.app/api/v1/auth/orders"
       );
       setOrders(data);
     } catch (error) {
@@ -29,7 +29,7 @@ const Orders = () => {
   const cancelOrder = async (orderId) => {
     try {
       await axios.put(
-        `https://aapla-market-backend.onrender.com/api/v1/auth/order-status/${orderId}`,
+        `https://aapla-market-backend.vercel.app/api/v1/auth/order-status/${orderId}`,
         {
           status: "Cancelled",
         }

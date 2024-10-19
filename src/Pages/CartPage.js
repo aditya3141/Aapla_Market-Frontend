@@ -19,7 +19,7 @@ const CartPage = () => {
       try {
         // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
           {
             withCredentials: true,
           }
@@ -87,7 +87,7 @@ const CartPage = () => {
       }));
 
       await axios.post(
-        "https://aapla-market-backend.onrender.com/api/v1/payment",
+        "https://aapla-market-backend.vercel.app/api/v1/payment",
         { cart: cartData },
         {
           headers: {
@@ -174,7 +174,7 @@ const CartPage = () => {
                       <NavLink to={`/product/${product.slug}`}>
                         <img
                           className="img-fluid img"
-                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${product._id}`}
+                          src={`https://aapla-market-backend.vercel.app/api/v1/product/product-photo/${product._id}`}
                           alt={product.name}
                         />
                       </NavLink>

@@ -15,7 +15,7 @@ const UpdateAddress = () => {
       try {
         // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
           {
             withCredentials: true,
           }
@@ -59,7 +59,7 @@ const UpdateAddress = () => {
 
     try {
       const response = await axios.put(
-        "https://aapla-market-backend.onrender.com/api/v1/auth/update-address",
+        "https://aapla-market-backend.vercel.app/api/v1/auth/update-address",
         {
           name: formData.name,
           phone: formData.phone,

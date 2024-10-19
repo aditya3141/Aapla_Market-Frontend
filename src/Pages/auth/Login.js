@@ -20,7 +20,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        `https://aapla-market-backend.onrender.com/api/v1/auth/login`,
+        `https://aapla-market-backend.vercel.app/api/v1/auth/login`,
         {
           email,
           password,
@@ -45,7 +45,7 @@ const Login = () => {
 
   const loginwithgoogle = () => {
     window.open(
-      "https://aapla-market-backend.onrender.com/auth/google/callback",
+      "https://aapla-market-backend.vercel.app/auth/google/callback",
       "_self"
     );
   };

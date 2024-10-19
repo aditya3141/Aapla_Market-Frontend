@@ -13,7 +13,7 @@ const UserMenu = () => {
       try {
         // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/login/sucess",
+          "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
           {
             withCredentials: true,
           }
@@ -33,7 +33,7 @@ const UserMenu = () => {
 
   const logout = () => {
     window.open(
-      "https://aapla-market-backend.onrender.com/api/v1/google-logout",
+      "https://aapla-market-backend.vercel.app/api/v1/google-logout",
       "_self"
     );
     setAuth({

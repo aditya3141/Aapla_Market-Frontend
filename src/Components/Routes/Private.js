@@ -13,7 +13,7 @@ export default function PrivateRoute() {
     const authCheck = async () => {
       try {
         const res = await axios.get(
-          "https://aapla-market-backend.onrender.com/api/v1/auth/user-auth"
+          "https://aapla-market-backend.vercel.app/api/v1/auth/user-auth"
         );
         if (res.data.ok) {
           setOk(true);

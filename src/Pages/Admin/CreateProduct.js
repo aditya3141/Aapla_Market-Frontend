@@ -28,7 +28,7 @@ const CreateProduct = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/category/gets-category"
+        "https://aapla-market-backend.vercel.app/api/v1/category/gets-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -82,7 +82,7 @@ const CreateProduct = () => {
       }
 
       const { data } = await axios.post(
-        "https://aapla-market-backend.onrender.com/api/v1/product/create-product",
+        "https://aapla-market-backend.vercel.app/api/v1/product/create-product",
         productData
       );
       if (data?.success) {

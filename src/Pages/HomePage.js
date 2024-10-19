@@ -30,7 +30,7 @@ const HomePage = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/category/gets-category"
+        "https://aapla-market-backend.vercel.app/api/v1/category/gets-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -49,7 +49,7 @@ const HomePage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/product/product-count"
+        "https://aapla-market-backend.vercel.app/api/v1/product/product-count"
       );
       setTotal(data?.total);
     } catch (error) {
@@ -68,7 +68,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://aapla-market-backend.onrender.com/api/v1/product/product-list/${page}`
+        `https://aapla-market-backend.vercel.app/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts(data.products);
@@ -102,7 +102,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://aapla-market-backend.onrender.com/api/v1/product/product-list/${page}`
+        `https://aapla-market-backend.vercel.app/api/v1/product/product-list/${page}`
       );
       setLoading(false);
       setProducts([...products, ...data?.products]);
@@ -116,7 +116,7 @@ const HomePage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "https://aapla-market-backend.onrender.com/api/v1/product/product-filter",
+        "https://aapla-market-backend.vercel.app/api/v1/product/product-filter",
         {
           checked,
           radio,
@@ -227,7 +227,7 @@ const HomePage = () => {
                     <div className="product-box-img">
                       <NavLink to={`/product/${p.slug}`}>
                         <img
-                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
+                          src={`https://aapla-market-backend.vercel.app/api/v1/product/product-photo/${p._id}`}
                           className="img"
                           alt={p.name}
                         />

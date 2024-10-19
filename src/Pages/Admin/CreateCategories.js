@@ -20,7 +20,7 @@ const CreateCategories = () => {
 
     try {
       const { data } = await axios.post(
-        "https://aapla-market-backend.onrender.com/api/v1/category/create-category",
+        "https://aapla-market-backend.vercel.app/api/v1/category/create-category",
         categoryData,
         {
           headers: {
@@ -44,7 +44,7 @@ const CreateCategories = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/category/gets-category"
+        "https://aapla-market-backend.vercel.app/api/v1/category/gets-category"
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -64,7 +64,7 @@ const CreateCategories = () => {
 
     try {
       const { data } = await axios.put(
-        `https://aapla-market-backend.onrender.com/api/v1/category/update-category/${selected._id}`,
+        `https://aapla-market-backend.vercel.app/api/v1/category/update-category/${selected._id}`,
         { name: updatedename }
       );
       if (data.success) {
@@ -85,7 +85,7 @@ const CreateCategories = () => {
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
-        `https://aapla-market-backend.onrender.com/api/v1/category/delete-category/${pId}`
+        `https://aapla-market-backend.vercel.app/api/v1/category/delete-category/${pId}`
       );
       if (data.success) {
         toast.success(`category is deleted`);

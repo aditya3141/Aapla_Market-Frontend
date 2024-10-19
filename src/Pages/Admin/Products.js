@@ -13,7 +13,7 @@ const Products = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://aapla-market-backend.onrender.com/api/v1/product/get-product"
+        "https://aapla-market-backend.vercel.app/api/v1/product/get-product"
       );
       setProducts(data.products);
     } catch (error) {
@@ -49,7 +49,7 @@ const Products = () => {
                     >
                       <div className="product-box-img">
                         <img
-                          src={`https://aapla-market-backend.onrender.com/api/v1/product/product-photo/${p._id}`}
+                          src={`https://aapla-market-backend.vercel.app/api/v1/product/product-photo/${p._id}`}
                           className="card-img-top"
                           alt={p.name}
                         />
