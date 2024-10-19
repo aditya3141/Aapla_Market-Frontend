@@ -8,26 +8,30 @@ const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   const [data, setData] = useState(null);
   const navigate = useNavigate();
-  useEffect(() => {
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  };
+
+   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Make a GET request to your API endpoint using Axios
         const response = await axios.get(
           "https://aapla-market-backend.vercel.app/api/v1/login/sucess",
           {
-            withCredentials: true,
+            withCredentials: true,  // Automatically send cookies, including HttpOnly
           }
         );
-        // Once data is fetched, update the state
         setData(response.data);
       } catch (error) {
-        // If an error occurs, update the state with the error
+        console.error("Error fetching data:", error.response ? error.response.data : error.message);
       }
     };
 
-    // Call the fetchData function
     fetchData();
   }, []);
+
 
   const handleLogout = () => {};
 
